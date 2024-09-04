@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "793331971198",
+    "project_id": "login-fire-baze",
+    "storage_bucket": "login-fire-baze.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793331971198:android:44ba56e144cbc2fb76142f",
+        "android_client_info": {
+          "package_name": "com.example.login_fire_baze"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDouerPAPcrNWszcEzCGr97nv7AZMhbgeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
