@@ -1,9 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login_fire_baze/el%20idhafet/profil.dart';
 import 'profil.dart';
-import 'quiz.dart';
-import 'quiz1.dart';
+import 'quiz/pages/quiz.dart';
+import 'quiz1/quiz1.dart';
 
 // StatefulWidget yomken ta3meli mochkla
 class Entry extends StatefulWidget {
@@ -23,6 +24,18 @@ class _EntryState extends State<Entry> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SvgPicture svgIcon(String src, {Color? color}) {
+      return SvgPicture.asset(
+        src,
+        height: 24,
+        colorFilter: ColorFilter.mode(
+            color ??
+                Theme.of(context).iconTheme.color!.withOpacity(
+                    Theme.of(context).brightness == Brightness.dark ? 0.3 : 1),
+            BlendMode.srcIn),
+      );
+    }
+
     return Scaffold(
       body: PageTransitionSwitcher(
         duration: Duration.zero,
@@ -48,45 +61,49 @@ class _EntryState extends State<Entry> {
               });
             }
           },
-          backgroundColor: Theme.of(context).brightness == Brightness.light
-              ? Colors.white
-              : const Color(0xFF101015),
+          backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
           // selectedLabelStyle: TextStyle(color: primaryColor),
           selectedFontSize: 12,
-          selectedItemColor: Colors.purple,
+          selectedItemColor: Color(0xFF7B61FF),
           unselectedItemColor: Colors.transparent,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_2_outlined,
-                color: Colors.black,
-              ),
-              activeIcon: Icon(
-                Icons.person_2_outlined,
-                color: Colors.purple,
-              ),
-              label: "profil",
+              icon: svgIcon("images/icons/Profile.svg"),
+              activeIcon: svgIcon("images/icons/Profile.svg",
+                  color: const Color(0xFF7B61FF)),
+              label: "Profile",
             ),
-            BottomNavigationBarItem(
+            // BottomNavigationBarItem(
+            //   icon: Icon(
+            //     Icons.person_2_outlined,
+            //     color: Colors.black,
+            //   ),
+            //   activeIcon: Icon(
+            //     Icons.person_2_outlined,
+            //     color: Colors.purple,
+            //   ),
+            //   label: "profil",
+            // ),
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.quiz_outlined,
                 color: Colors.black,
               ),
               activeIcon: Icon(
                 Icons.quiz_outlined,
-                color: Colors.purple,
+                color: Color(0xFF7B61FF),
               ),
               label: "quiz",
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.quiz_rounded,
                 color: Colors.black,
               ),
               activeIcon: Icon(
                 Icons.quiz_rounded,
-                color: Colors.purple,
+                color: Color(0xFF7B61FF),
               ),
               label: "quiz1",
             ),

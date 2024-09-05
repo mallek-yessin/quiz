@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
+
+import 'components/body.dart';
+import 'quiz/components/body.dart';
+
 // StatefulWidget yomken ta3meli mochkla
 class Quiz1 extends StatefulWidget {
   const Quiz1({super.key});
@@ -13,11 +18,10 @@ class _Quiz1State extends State<Quiz1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("quiz1"),
-        ),
-        body: ListView(
-          children: [],
-        ));
+      appBar: AppBar(
+        title: Text("quiz1"),
+      ),
+      body: Body(key: Key('body_widget')),
+    );
   }
 }

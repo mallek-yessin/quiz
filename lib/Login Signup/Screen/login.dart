@@ -4,7 +4,7 @@ import 'package:login_fire_baze/Login%20With%20Google/google_auth.dart';
 import 'package:login_fire_baze/Password%20Forgot/forgot_password.dart';
 import 'package:login_fire_baze/Phone%20Auth/phone_login.dart';
 import 'package:login_fire_baze/el%20idhafet/entry.dart';
-import 'package:login_fire_baze/el%20idhafet/quiz.dart';
+//import 'package:login_fire_baze/el%20idhafet/quiz.dart';
 
 import '../Services/authentication.dart';
 import '../Widget/snackbar.dart';

@@ -179,7 +179,7 @@ class _UploadImageState extends State<UploadImage> {
                     ),
                     onPressed: () {},
                     child: const Text(
-                      'Submit',
+                      "submit",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
