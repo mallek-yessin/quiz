@@ -1,14 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
-
-import 'Questions.dart';
-import 'score/score_screen.dart';
+import 'package:login_fire_baze/sections/quiz1/Questions.dart';
+import 'package:login_fire_baze/sections/quiz1/score/score_screen.dart';
 
 // We use get package for our state management
 
 class QuestionController extends GetxController
-    with SingleGetTickerProviderMixin {
+    with GetSingleTickerProviderStateMixin {
   // Lets animated our progress bar
 
   late AnimationController _animationController;
@@ -19,7 +17,7 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = sample_data
+  final List<Question> _questions = sample_data
       .map(
         (question) => Question(
             id: question['id'],

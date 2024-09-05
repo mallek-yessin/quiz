@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-
-import 'components/body.dart';
 import 'quiz/components/body.dart';
 
 // StatefulWidget yomken ta3meli mochkla

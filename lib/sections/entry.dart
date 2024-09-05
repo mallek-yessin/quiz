@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:login_fire_baze/el%20idhafet/profil.dart';
+import 'package:login_fire_baze/sections/profil.dart';
 import 'profil.dart';
 import 'quiz/pages/quiz.dart';
 import 'quiz1/quiz1.dart';

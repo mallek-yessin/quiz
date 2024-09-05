@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../../entry.dart';
 import '../models/question_model.dart';
 
 class QuestionPage extends StatefulWidget {
@@ -116,6 +117,12 @@ class _QuestionPageState extends State<QuestionPage> {
                       );
                       currentQuestion++;
                     });
+                  } else {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const Entry(),
+                      ),
+                    );
                   }
                 },
                 child: Text(

@@ -18,7 +18,7 @@ class QuizHeader extends StatelessWidget {
                 const EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 15),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/quiz_bg.png"),
+                image: AssetImage("images/quiz_bg.png"),
                 fit: BoxFit.cover,
               ),
             ),
