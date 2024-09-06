@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:login_fire_baze/models/recent_quiz_model.dart';
 
 import '../models/recent_quiz_model.dart';
 import '../pages/question_page.dart';
+import '../question_controller.dart';
 
 class RecentQuiz extends StatelessWidget {
   const RecentQuiz({
@@ -15,12 +17,14 @@ class RecentQuiz extends StatelessWidget {
   final RecentQuizModel recentQuizModel;
   @override
   Widget build(BuildContext context) {
+    QuestionController controller = Get.put(QuestionController());
     return Card(
       elevation: 4,
       shadowColor: Colors.black26,
       child: ListTile(
         contentPadding: const EdgeInsets.all(15),
         onTap: () {
+          controller.numOfCorrectAns = 0;
           Navigator.push(
             context,
             CupertinoPageRoute(

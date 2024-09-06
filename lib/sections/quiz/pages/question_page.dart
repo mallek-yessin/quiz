@@ -1,5 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../question_controller.dart';
+import './score_screen.dart';
 
 import '../../entry.dart';
 import '../models/question_model.dart';
@@ -11,16 +14,20 @@ class QuestionPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  State<QuestionPage> createState() => QuestionPageState();
   final String title;
 }
 
-class _QuestionPageState extends State<QuestionPage> {
+class QuestionPageState extends State<QuestionPage> {
+  String c = '';
+  String x = '';
+
   int currentQuestion = 0;
   final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
+    QuestionController _controller = Get.put(QuestionController());
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -49,10 +56,12 @@ class _QuestionPageState extends State<QuestionPage> {
                 onPageChanged: (index) {
                   setState(() {
                     currentQuestion = index;
+                    x = "";
                   });
                 },
                 itemBuilder: (context, index) {
                   final question = sampleQuestions[index];
+                  c = question.answer;
                   return ListView(
                     physics: const BouncingScrollPhysics(),
                     children: [
@@ -93,6 +102,7 @@ class _QuestionPageState extends State<QuestionPage> {
                                   sampleQuestions[index].userAnswer =
                                       value.toString();
                                 });
+                                x = question.userAnswer;
                               },
                             ),
                           );
@@ -109,6 +119,8 @@ class _QuestionPageState extends State<QuestionPage> {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
+                  if (x == c) _controller.numOfCorrectAns++;
+
                   if (currentQuestion < sampleQuestions.length - 1) {
                     setState(() {
                       _pageController.nextPage(
@@ -120,7 +132,7 @@ class _QuestionPageState extends State<QuestionPage> {
                   } else {
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
-                        builder: (context) => const Entry(),
+                        builder: (context) => ScoreScreen(),
                       ),
                     );
                   }

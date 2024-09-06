@@ -34,7 +34,7 @@ List<QuestionModel> sampleQuestions = [
     options: [
       "Jupiter",
       "Saturn",
-      "Earth",
+      "fast",
       "Mars",
     ],
   ),

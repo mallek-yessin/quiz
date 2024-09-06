@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:login_fire_baze/sections/quiz1/Questions.dart';
@@ -59,7 +60,7 @@ class QuestionController extends GetxController
 
     // start our animation
     // Once 60s is completed go to the next qn
-    _animationController.forward().whenComplete(nextQuestion);
+    _animationController.forward().whenComplete(() => nextQuestion(null));
     _pageController = PageController();
     super.onInit();
   }
@@ -68,11 +69,11 @@ class QuestionController extends GetxController
   @override
   void onClose() {
     super.onClose();
-    _animationController.dispose();
-    _pageController.dispose();
+
+    // _pageController.dispose();
   }
 
-  void checkAns(Question question, int selectedIndex) {
+  void checkAns(Question question, int selectedIndex, context) {
     // because once user press any option then it will run
     _isAnswered = true;
     _correctAns = question.answer;
@@ -81,30 +82,31 @@ class QuestionController extends GetxController
     if (_correctAns == _selectedAns) _numOfCorrectAns++;
 
     // It will stop the counter
-    _animationController.stop();
+
     update();
 
     // Once user select an ans after 3s it will go to the next qn
     Future.delayed(Duration(seconds: 3), () {
-      nextQuestion();
+      nextQuestion(context);
     });
   }
 
-  void nextQuestion() {
+  void nextQuestion(context) {
     if (_questionNumber.value != _questions.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       // Reset the counter
-      _animationController.reset();
 
       // Then start it again
       // Once timer is finish go to the next qn
-      _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(ScoreScreen());
+      // Get.to(ScoreScreen());
+      Navigator.of(context).popUntil((route) => route.isFirst);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ScoreScreen()));
     }
   }
 

@@ -41,7 +41,7 @@ class QuestionCard extends StatelessWidget {
               key: Key('option_$index'), // Providing the required key
               index: index,
               text: question.options[index],
-              press: () => _controller.checkAns(question, index),
+              press: () => _controller.checkAns(question, index, context),
             ),
           ),
         ],
