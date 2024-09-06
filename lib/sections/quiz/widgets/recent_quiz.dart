@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:login_fire_baze/models/recent_quiz_model.dart';
 
+import '../models/question_model.dart';
 import '../models/recent_quiz_model.dart';
 import '../pages/question_page.dart';
 import '../question_controller.dart';
@@ -25,6 +26,10 @@ class RecentQuiz extends StatelessWidget {
         contentPadding: const EdgeInsets.all(15),
         onTap: () {
           controller.numOfCorrectAns = 0;
+          for (var question in sampleQuestions) {
+            question.userAnswer = "";
+          }
+
           Navigator.push(
             context,
             CupertinoPageRoute(

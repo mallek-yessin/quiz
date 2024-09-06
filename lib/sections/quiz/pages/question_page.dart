@@ -19,8 +19,7 @@ class QuestionPage extends StatefulWidget {
 }
 
 class QuestionPageState extends State<QuestionPage> {
-  String c = '';
-  String x = '';
+  late QuestionModel question;
 
   int currentQuestion = 0;
   final PageController _pageController = PageController();
@@ -56,12 +55,10 @@ class QuestionPageState extends State<QuestionPage> {
                 onPageChanged: (index) {
                   setState(() {
                     currentQuestion = index;
-                    x = "";
                   });
                 },
                 itemBuilder: (context, index) {
-                  final question = sampleQuestions[index];
-                  c = question.answer;
+                  question = sampleQuestions[index];
                   return ListView(
                     physics: const BouncingScrollPhysics(),
                     children: [
@@ -102,7 +99,6 @@ class QuestionPageState extends State<QuestionPage> {
                                   sampleQuestions[index].userAnswer =
                                       value.toString();
                                 });
-                                x = question.userAnswer;
                               },
                             ),
                           );
@@ -119,7 +115,8 @@ class QuestionPageState extends State<QuestionPage> {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
-                  if (x == c) _controller.numOfCorrectAns++;
+                  if (question.userAnswer == question.answer)
+                    _controller.numOfCorrectAns++;
 
                   if (currentQuestion < sampleQuestions.length - 1) {
                     setState(() {
