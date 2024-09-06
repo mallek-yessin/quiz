@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
-
 import '../models/live_quiz_model.dart';
 import '../models/recent_quiz_model.dart';
 import '../widgets/live_quiz.dart';
@@ -21,7 +19,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Quiz"),
+        title: const Text("Quiz"),
       ),
       body: SafeArea(
         child: Column(

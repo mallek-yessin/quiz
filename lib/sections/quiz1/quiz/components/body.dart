@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 import '../../question_controller.dart';
-import 'progress_bar.dart';
 import 'question_card.dart';
 
 class Body extends StatelessWidget {

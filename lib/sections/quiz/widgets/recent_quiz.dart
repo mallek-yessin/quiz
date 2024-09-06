@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:login_fire_baze/models/recent_quiz_model.dart';
-
 import '../models/question_model.dart';
 import '../models/recent_quiz_model.dart';
 import '../pages/question_page.dart';
@@ -12,9 +10,9 @@ import '../question_controller.dart';
 
 class RecentQuiz extends StatelessWidget {
   const RecentQuiz({
-    Key? key,
+    super.key,
     required this.recentQuizModel,
-  }) : super(key: key);
+  });
   final RecentQuizModel recentQuizModel;
   @override
   Widget build(BuildContext context) {
@@ -27,8 +25,7 @@ class RecentQuiz extends StatelessWidget {
         contentPadding: const EdgeInsets.all(15),
         onTap: () {
           controller.createList();
-          controller.numOfCorrectAns =
-              0; ////////////////////////////////////////////////////////////////////////////////////////////////
+          controller.numOfCorrectAns = 0;
           for (var question in sampleQuestions) {
             question.userAnswer = "";
           }
@@ -42,7 +39,6 @@ class RecentQuiz extends StatelessWidget {
             ),
           );
         },
-        // make leading a custom widget with a background and icon inside
         leading: Container(
           width: 50,
           height: 50,

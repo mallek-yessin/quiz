@@ -4,12 +4,9 @@ import 'package:login_fire_baze/Login%20With%20Google/google_auth.dart';
 import 'package:login_fire_baze/Password%20Forgot/forgot_password.dart';
 import 'package:login_fire_baze/Phone%20Auth/phone_login.dart';
 import 'package:login_fire_baze/sections/entry.dart';
-//import 'package:login_fire_baze/el%20idhafet/quiz.dart';
-
 import '../Services/authentication.dart';
 import '../Widget/snackbar.dart';
 import '../Widget/text_field.dart';
-
 import 'signup.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -54,7 +51,7 @@ class _SignupScreenState extends State<LoginScreen> {
       setState(() {
         isLoading = false;
       });
-      // show error
+      // ignore: use_build_context_synchronously
       showSnackBar(context, res);
     }
   }
@@ -63,12 +60,10 @@ class _SignupScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
           child: SizedBox(
         child: ListView(
-          /*crossAxisAlignment: CrossAxisAlignment.center,*/
           children: [
             SizedBox(
               height: height / 2.7,
@@ -86,10 +81,8 @@ class _SignupScreenState extends State<LoginScreen> {
               textInputType: TextInputType.text,
               isPass: true,
             ),
-            //  we call our forgot password below the login in button
             const ForgotPassword(),
             MyButtons(onTap: loginUser, text: "Log In"),
-
             Row(
               children: [
                 Expanded(
@@ -101,7 +94,6 @@ class _SignupScreenState extends State<LoginScreen> {
                 )
               ],
             ),
-            // for google login
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
               child: ElevatedButton(
@@ -110,6 +102,7 @@ class _SignupScreenState extends State<LoginScreen> {
                 onPressed: () async {
                   await FirebaseServices().signInWithGoogle();
                   Navigator.pushReplacement(
+                    // ignore: use_build_context_synchronously
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Entry(),
@@ -138,13 +131,10 @@ class _SignupScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            // for phone authentication
             const PhoneAuthentication(),
-            // Don't have an account? got to signup screen
             Padding(
               padding: const EdgeInsets.only(top: 10, left: 100),
               child: Row(
-                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Don't have an account? "),
                   GestureDetector(

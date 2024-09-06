@@ -29,24 +29,18 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   void signupUser() async {
-    // set is loading to true.
-    int x = 5;
     setState(() {
       isLoading = true;
     });
-
-    // signup user using our authmethod
     String res = await AuthMethod().signupUser(
         email: emailController.text,
         password: passwordController.text,
         name: nameController.text);
-    // if string return is success, user has been creaded and navigate to next screen other witse show error.
 
     if (res == "success") {
       setState(() {
         isLoading = false;
       });
-      //navigate to the next screen
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const HomeScreen(),
@@ -56,7 +50,6 @@ class _SignupScreenState extends State<SignupScreen> {
       setState(() {
         isLoading = false;
       });
-      // show error
       showSnackBar(context, res);
     }
   }
@@ -65,11 +58,9 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      //resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: SizedBox(
         child: ListView(
-          /* crossAxisAlignment: CrossAxisAlignment.center,*/
           children: [
             SizedBox(
               height: height / 2.8,

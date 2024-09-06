@@ -2,7 +2,6 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login_fire_baze/sections/profil.dart';
-import 'profil.dart';
 import 'quiz/pages/quiz.dart';
 import 'quiz1/quiz1.dart';
 
@@ -63,7 +62,6 @@ class _EntryState extends State<Entry> {
           },
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
-          // selectedLabelStyle: TextStyle(color: primaryColor),
           selectedFontSize: 12,
           selectedItemColor: Color(0xFF7B61FF),
           unselectedItemColor: Colors.transparent,
@@ -74,17 +72,6 @@ class _EntryState extends State<Entry> {
                   color: const Color(0xFF7B61FF)),
               label: "Profile",
             ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(
-            //     Icons.person_2_outlined,
-            //     color: Colors.black,
-            //   ),
-            //   activeIcon: Icon(
-            //     Icons.person_2_outlined,
-            //     color: Colors.purple,
-            //   ),
-            //   label: "profil",
-            // ),
             const BottomNavigationBarItem(
               icon: Icon(
                 Icons.quiz_outlined,

@@ -1,17 +1,14 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../question_controller.dart';
 import './score_screen.dart';
-
-import '../../entry.dart';
 import '../models/question_model.dart';
 
 class QuestionPage extends StatefulWidget {
   const QuestionPage({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   State<QuestionPage> createState() => QuestionPageState();
@@ -26,7 +23,7 @@ class QuestionPageState extends State<QuestionPage> {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController _controller = Get.put(QuestionController());
+    QuestionController controller = Get.put(QuestionController());
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -95,7 +92,7 @@ class QuestionPageState extends State<QuestionPage> {
                                   .onPrimaryContainer,
                               groupValue: question.userAnswer,
                               onChanged: (value) {
-                                _controller.userAnswers[index] =
+                                controller.userAnswers[index] =
                                     value.toString();
                                 setState(() {
                                   sampleQuestions[index].userAnswer =
@@ -117,8 +114,6 @@ class QuestionPageState extends State<QuestionPage> {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
-                  // if (question.userAnswer == question.answer)
-                  //   _controller.numOfCorrectAns++;
                   if (currentQuestion < sampleQuestions.length - 1) {
                     setState(() {
                       _pageController.nextPage(

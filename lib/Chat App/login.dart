@@ -1,10 +1,8 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'chat_page.dart';
 import 'register_screen.dart';
-
 
 class HomeeScreen extends StatefulWidget {
   @override
@@ -18,7 +16,6 @@ class _HomeeScreenState extends State<HomeeScreen> {
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
-  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,10 +132,8 @@ class _HomeeScreenState extends State<HomeeScreen> {
                           keyboardType: TextInputType.emailAddress,
                         ),
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor:Colors.blue[900] ),
-                      
-                      
-                         
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue[900]),
                           onPressed: () {},
                           child: Text(
                             "Forgot Password ....",
