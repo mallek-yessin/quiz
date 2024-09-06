@@ -95,6 +95,8 @@ class QuestionPageState extends State<QuestionPage> {
                                   .onPrimaryContainer,
                               groupValue: question.userAnswer,
                               onChanged: (value) {
+                                _controller.userAnswers[index] =
+                                    value.toString();
                                 setState(() {
                                   sampleQuestions[index].userAnswer =
                                       value.toString();
@@ -115,9 +117,8 @@ class QuestionPageState extends State<QuestionPage> {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
-                  if (question.userAnswer == question.answer)
-                    _controller.numOfCorrectAns++;
-
+                  // if (question.userAnswer == question.answer)
+                  //   _controller.numOfCorrectAns++;
                   if (currentQuestion < sampleQuestions.length - 1) {
                     setState(() {
                       _pageController.nextPage(

@@ -19,13 +19,16 @@ class RecentQuiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuestionController controller = Get.put(QuestionController());
+
     return Card(
       elevation: 4,
       shadowColor: Colors.black26,
       child: ListTile(
         contentPadding: const EdgeInsets.all(15),
         onTap: () {
-          controller.numOfCorrectAns = 0;
+          controller.createList();
+          controller.numOfCorrectAns =
+              0; ////////////////////////////////////////////////////////////////////////////////////////////////
           for (var question in sampleQuestions) {
             question.userAnswer = "";
           }
